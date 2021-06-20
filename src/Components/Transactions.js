@@ -33,7 +33,7 @@ const Transactions = () => {
 
 
     return (<div className="transactions">
-        <h2 style={{ color: `${bankAmountColor}` }}>Bank Account Total: {total}</h2>
+        <h2 className="p-2" style={{ color: `${bankAmountColor}` }}>Bank Account Total: {total}</h2>
         <Table responsive="sm" striped bordered hover>
             <thead>
                 <tr>

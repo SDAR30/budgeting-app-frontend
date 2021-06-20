@@ -34,11 +34,11 @@ const EditTransaction = () => {
         }
     }
 
-    const deleteTransaction = async (e)=>{
-        try{
+    const deleteTransaction = async (e) => {
+        try {
             await axios.delete(`${API}/transactions/${index}`);
             history.push(`/transactions`)
-        }catch(error){
+        } catch (error) {
             console.log(error)
         }
 
@@ -84,38 +84,41 @@ const EditTransaction = () => {
 
     return (
         <div className="Edit">
-            <h3>Edit Transaction</h3>
+            <h3 className="p-2 border">Edit Transaction</h3>
+            <div className="w-75 p-1 border mx-auto">
+                <Form className="w-50 mx-auto pt-4" onSubmit={updateTransaction}>
 
-            <Form className="w-50 mx-auto pt-4" onSubmit={updateTransaction}>
-                <Form.Group controlId="date">
-                    <Form.Label>Date of Transaction</Form.Label>
-                    <Form.Control type="date" name="date" placeholder="Date of Transaction" value={transaction.date} onChange={handleTextChange} required />
-                </Form.Group>
+                    <Form.Group controlId="date">
+                        <Form.Label>Date of Transaction</Form.Label>
+                        <Form.Control type="date" name="date" placeholder="Date of Transaction" value={transaction.date} onChange={handleTextChange} required />
+                    </Form.Group>
 
-                <Form.Group controlId="name">
-                    <Form.Label>Subject of Transaction</Form.Label>
-                    <Form.Control type="text" name="name" placeholder="Subject" value={transaction.name} onChange={handleTextChange} required />
-                </Form.Group>
+                    <Form.Group controlId="name">
+                        <Form.Label>Subject of Transaction</Form.Label>
+                        <Form.Control type="text" name="name" placeholder="Subject" value={transaction.name} onChange={handleTextChange} required />
+                    </Form.Group>
 
-                <Form.Group controlId="amount" className="w-25">
-                    <Form.Label>Amount</Form.Label>
-                    <Form.Control type="number" name="amount" placeholder="amount" value={transaction.amount} onChange={handleTextChange} required />
-                </Form.Group>
+                    <Form.Group controlId="amount" className="w-25">
+                        <Form.Label>Amount</Form.Label>
+                        <Form.Control type="number" name="amount" placeholder="amount" value={transaction.amount} onChange={handleTextChange} required />
+                    </Form.Group>
 
-                <Form.Group controlId="from" className="w-25">
-                    <Form.Label>From</Form.Label>
-                    <Form.Control type="text" name="from" placeholder="from" value={transaction.from} onChange={handleTextChange} required />
-                </Form.Group>
+                    <Form.Group controlId="from" className="w-25">
+                        <Form.Label>From</Form.Label>
+                        <Form.Control type="text" name="from" placeholder="from" value={transaction.from} onChange={handleTextChange} required />
+                    </Form.Group>
 
 
-                <Button variant="primary" type="submit" className="m-2">
-                    Update Transaction
+                    <Button variant="primary" type="submit" className="m-2">
+                        Update Transaction
                 </Button>
-                
-            </Form>
-            <Button variant="danger" className="m-1" onClick={deleteTransaction}>
+
+                </Form>
+
+                <Button variant="danger" className="m-1" onClick={deleteTransaction}>
                     Delete Transaction
-                </Button>
+            </Button>
+            </div>
         </div>
     )
 }

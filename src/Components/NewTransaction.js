@@ -38,7 +38,8 @@ export default function NewTransaction() {
     }
 
     return (<div>
-        <Form className="w-50 mx-auto pt-4" onSubmit={handleSubmit}>
+        <h3 className="p-2 border">Enter New Transaction</h3>
+        <Form className="w-50 mx-auto pt-3 border p-2" onSubmit={handleSubmit}>
             <Form.Group controlId="date">
                 <Form.Label>Date of Transaction</Form.Label>
                 <Form.Control type="date" name="date" placeholder="Date of Transaction" required />
