@@ -34,6 +34,7 @@ const Transactions = () => {
 
     return (<div className="transactions">
         <h2 className="p-2" style={{ color: `${bankAmountColor}` }}>Bank Account Total: {total}</h2>
+
         <Table responsive="sm" striped bordered hover>
             <thead>
                 <tr>
@@ -47,6 +48,7 @@ const Transactions = () => {
                 {transactions.map((transaction, index) => <TransactionListItem key={index} index={index} data={transaction} />)}
             </tbody>
         </Table>
+        
     </div>)
 
 }

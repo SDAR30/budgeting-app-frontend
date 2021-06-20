@@ -27,7 +27,6 @@ export default function NewTransaction() {
             name: subject.value,
             amount: Number(amount.value),
           }
-          debugger
         try {
             await axios.post(`${API}/transactions/new`, newTransaction);
             history.push(`/transactions`);
@@ -39,7 +38,9 @@ export default function NewTransaction() {
 
     return (<div>
         <h3 className="p-2 border">Enter New Transaction</h3>
+
         <Form className="w-50 mx-auto pt-3 border p-2" onSubmit={handleSubmit}>
+
             <Form.Group controlId="date">
                 <Form.Label>Date of Transaction</Form.Label>
                 <Form.Control type="date" name="date" placeholder="Date of Transaction" required />
@@ -63,7 +64,9 @@ export default function NewTransaction() {
 
             <Button variant="primary" type="submit">
                 Submit
-        </Button>
+            </Button>
+            
         </Form>
+
     </div>)
 }

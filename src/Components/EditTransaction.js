@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -70,7 +70,6 @@ const EditTransaction = () => {
         try {
             const { data } = await axios.get(`${API}/transactions/${index}`);
             data.date = getLongDateFormat(data.date)
-            debugger
             setTransaction(data);
 
         } catch (err) {
