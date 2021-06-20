@@ -1,24 +1,36 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import axios from "axios"
+import {useHistory} from "react-router-dom"
 import { apiURL } from '../util/apiURL';
  
 
 
 export default function NewTransaction() {
     const API = apiURL();
+    let history = useHistory();
+
+    const getDateFormat = (str) =>{
+        const monthNames = [ "January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December" ];
+        const month = monthNames[new Date(str).getMonth()];
+        const day = new Date(str).getDate() + 1;
+        return month + " " + day;
+    }
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {from, date,subject, amount} = e.target;
         const newTransaction = {
             from: from.value,
-            date: date.value,
+            date: getDateFormat(date.value),
             name: subject.value,
-            amount: amount.value,
+            amount: Number(amount.value),
           }
+          debugger
         try {
             await axios.post(`${API}/transactions/new`, newTransaction);
+            history.push(`/transactions`);
         }catch(error){
             console.log(error)
         }
