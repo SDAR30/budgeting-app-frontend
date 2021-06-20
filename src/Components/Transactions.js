@@ -9,11 +9,15 @@ const API = apiURL();
 const Transactions = () => {
     const [transactions, setTransactions] = useState([]);
     const [total, setTotal] = useState(0)
+    const [bankAmountColor, setBankAmountColor] = useState("black")
 
     const getTransactions = async () => {
         try {
             const { data } = await axios.get(`${API}/transactions`);
             const newTotal = data.reduce((acc, index) => acc + index.amount, 0)
+            if (newTotal < 0) { setBankAmountColor("red") }
+            else if (newTotal > 1000) { setBankAmountColor("green") }
+            else { setBankAmountColor("black") }
             setTotal(newTotal)
             setTransactions(data)
         } catch (error) {
@@ -29,7 +33,7 @@ const Transactions = () => {
 
 
     return (<div className="transactions">
-        <h2>Bank Account Total: {total}</h2>
+        <h2 style={{ color: `${bankAmountColor}` }}>Bank Account Total: {total}</h2>
         <Table responsive="sm" striped bordered hover>
             <thead>
                 <tr>
@@ -40,7 +44,7 @@ const Transactions = () => {
                 </tr>
             </thead>
             <tbody>
-                {transactions.map((transaction, index) => <TransactionListItem key={index} data={transaction} />)}
+                {transactions.map((transaction, index) => <TransactionListItem key={index} index={index} data={transaction} />)}
             </tbody>
         </Table>
     </div>)

@@ -1,10 +1,16 @@
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import Container from "react-bootstrap/Container"
+
 function Home() {
-    return (
-      <div className="Home">
-        <h2>Welcome</h2>
-        <h3>To Buggeting APP</h3>
-      </div>
-    );
+    return (<Jumbotron fluid>
+      <Container>
+        <h1>Budgeting App</h1>
+        <p>
+          This is the front-end for a full-stack budgeting application.
+        </p>
+        <p>Record and keep track of your transactions.</p>
+      </Container>
+    </Jumbotron>);
   }
   
   export default Home;

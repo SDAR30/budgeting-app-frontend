@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import Transactions from './Components/Transactions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewTransaction from './Components/NewTransaction';
+import EditTransaction from './Components/EditTransaction';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/transactions/new">
             <NewTransaction />
+          </Route>
+          <Route exact path="/transactions/:index">
+            <EditTransaction />
           </Route>
         </Switch>
       </Router>

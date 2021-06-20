@@ -10,7 +10,7 @@ export default function NewTransaction() {
     const API = apiURL();
     let history = useHistory();
 
-    const getDateFormat = (str) =>{
+    const getShortDateFormat = (str) =>{
         const monthNames = [ "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December" ];
         const month = monthNames[new Date(str).getMonth()];
@@ -23,7 +23,7 @@ export default function NewTransaction() {
         const {from, date,subject, amount} = e.target;
         const newTransaction = {
             from: from.value,
-            date: getDateFormat(date.value),
+            date: getShortDateFormat(date.value),
             name: subject.value,
             amount: Number(amount.value),
           }
