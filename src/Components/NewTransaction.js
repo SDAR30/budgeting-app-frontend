@@ -28,7 +28,7 @@ export default function NewTransaction() {
             amount: Number(amount.value),
           }
         try {
-            await axios.post(`${API}/transactions/new`, newTransaction);
+            await axios.post(`${API}/transactions`, newTransaction);
             history.push(`/transactions`);
         }catch(error){
             console.log(error)

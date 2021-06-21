@@ -19,9 +19,7 @@ function App() {
           <Route exact path="/transactions">
             <Transactions />
           </Route>
-          <Route exact path="/transactions/new">
-            <NewTransaction />
-          </Route>
+          <Route exact path="/transactions/new" component={NewTransaction}/>
           <Route exact path="/transactions/:index">
             <EditTransaction />
           </Route>
