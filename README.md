@@ -33,7 +33,7 @@ Displays a 4 column grid of all transactions
 
 A form for user to enter
 
-#### Transactions: ```/transactions/index```
+#### Transactions: ```/transactions/:index```
 
 Check an existing transaction, update time, name and amount, or delete the transaction.
 
