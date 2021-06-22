@@ -53,7 +53,8 @@ Check an existing transaction, update time, name and amount, or delete the trans
 
 ### Libraries Used
 
-- Express
-- Cors
-- dotenv
-- nodemon
+- react
+- axios
+- react-router-dom
+- bootstrap
+- react-bootstrap
